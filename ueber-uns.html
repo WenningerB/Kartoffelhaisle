@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seitentitel</title>
+
+<style>
+
+/* =========================
+🔵 CSS START
+========================= */
+
+/* 🔵 BASIS */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial;
+  font-size: 18px;
+  color: #000;
+  animation:fadeIn 1s ease;
+}
+
+/* 🔥 FADE-IN */
+@keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+/* =========================
+🔵 NAVIGATION
+========================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2e2e2e;
+  padding: 15px 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 110px;
+  transition:0.3s;
+}
+
+/* 🔥 LOGO HOVER */
+.logo:hover {
+  transform:scale(1.05);
+}
+
+nav h1 {
+  color: white;
+  margin: 0;
+}
+
+/* =========================
+🔵 NAV LINKS
+========================= */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  position:relative;
+  transition:0.3s;
+}
+
+/* 🔥 HOVER */
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#4CAF50;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after {
+  width:100%;
+}
+
+.nav-links a:hover {
+  transform:scale(1.1);
+  color:#4CAF50;
+}
+
+/* =========================
+🔵 HERO
+========================= */
+.hero {
+  height: 30vh;
+  background: url('images/kartoffeln.jpg') center/cover fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h2 {
+  background: rgba(0,0,0,0.6);
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+  animation:slideUp 1s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform:translateY(30px);
+    opacity:0;
+  }
+  to {
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
+/* =========================
+🔵 SECTION
+========================= */
+section {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 🔥 CONTENT BOX */
+.content {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* 🔥 TEXT KARTEN */
+.content p {
+  background:#f5f5f5;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom:20px;
+}
+
+/* 🔵 TEXT */
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* =========================
+🔵 BILD
+========================= */
+.center-image {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.center-image img {
+  width: 700px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition:0.4s;
+}
+
+/* 🔥 BILD HOVER */
+.center-image img:hover {
+  transform:scale(1.05);
+}
+
+/* =========================
+🔵 FOOTER
+========================= */
+footer {
+  background: #2e2e2e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =========================
+🔴 CSS ENDE
+========================= */
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+🔵 HTML START
+========================= -->
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <img src="images/logo.png" class="logo">
+    <h1>Kartoffelhaisle</h1>
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html">Startseite</a>
+    <a href="standorte.html">Standorte</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="hofleben.html">Hofleben</a>
+    <a href="bilder.html">Bilder</a>
+    <a href="rezepte.html">Rezepte</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Über uns !!</h2>
+</div>
+
+<!-- CONTENT -->
+<section>
+
+<div class="content">
+
+<h2>Das machen wir</h2>
+
+<p>
+Seit wir unser erstes Kartoffelhaisle, während der Corona Pandemie, in
+Nordhausen aufgebaut haben, ist viel passiert.<br>
+<br>
+
+Wir – die Familie Wenninger – sind seitdem mit 
+viel Herzblut und Liebe dabei.<br><br>
+
+Am 20.02.2021 eröffneten wir das zweite Kartoffelhaisle an unserem Hauptstandort in Unterpeiching.<br><br>
+
+Ein Jahr später, am 14.05.2022, kam der dritte Standort in Staudheim hinzu.
+</p>
+
+<h2> Unser Hof</h2>
+
+<p>
+Unser Hof wird konventionell betrieben, mit erzeugnissen wie Kartoffeln, Zuckerrüben und Getreide.<br>
+Außerdem haben wir ein Hühnermobil mit glücklichen Hühnern und drei Ziegen.<br>
+Bewirtschaftet wird er von Otto und Evi Wenninger mit ihren 3 Kindern.
+</p>
+
+<div class="center-image">
+  <img src="images/huehnermobile.jpg" alt="Hühnermobile">
+  <p>👉 Unser Hühnermobil mit unseren Hühnern und Ziegen</p>
+</div>
+
+<h4> Kartoffelhaisle Nordhausen</h4>
+<p>Diesen Standort betreiben wir gemeinsam mit den Familien Humpf und Schmid <p>
+
+
+
+<h4> Wetterstattion</h4>
+
+<a class="button"href="https://www.wunderground.com/dashboard/pws/IRAIN42">Unsere Wetterstadion 
+direkt am Hof in Unterpeiching.
+</a>
+
+
+</div>
+</section>
+
+
+
+
+<!-- FOOTER -->
+<footer>
+<p>📞 1777442804 | 🕒 24h geöffnet | 📍 Unterpeiching, Nordhausen & Staudheim</p>
+<p>© 2026 Kartoffelhaisle</p>
+</footer>
+
+</body>
+</html>
