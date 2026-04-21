@@ -1,25 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="de">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seitentitel</title>
+<title>Bilder - Kartoffelhaisle</title>
 
 <style>
 
 /* =========================
-   🔵 CSS START
+   🔵 GLOBAL FIX (WICHTIG)
+   verhindert RECHTE SEITE BUG
    ========================= */
-
-/* 🔵 BASIS */
-body { 
-  margin:0; 
-  font-family:'Segoe UI',Arial; 
-  animation:fadeIn 1s ease;
+* {
+  box-sizing: border-box;
 }
 
-/* 🔥 FADE-IN */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 🔥 FIX: kein weißer Rand rechts mehr */
+  font-family: 'Segoe UI', Arial;
+  animation: fadeIn 1s ease;
+}
+
+/* =========================
+   🔥 FADE IN
+   ========================= */
 @keyframes fadeIn {
   from { opacity:0; }
   to { opacity:1; }
@@ -34,6 +42,7 @@ nav {
   align-items:center;
   background:#2e2e2e;
   padding:15px 20px;
+  position:relative;
 }
 
 .nav-left {
@@ -47,7 +56,6 @@ nav {
   transition:0.3s;
 }
 
-/* 🔥 LOGO HOVER */
 .logo:hover {
   transform:scale(1.05);
 }
@@ -57,7 +65,9 @@ nav h1 {
   margin:0;
 }
 
-/* 🔵 NAV LINKS */
+/* =========================
+   🔵 NAV LINKS
+   ========================= */
 .nav-links {
   display:flex;
   gap:15px;
@@ -70,7 +80,7 @@ nav h1 {
   transition:0.3s;
 }
 
-/* 🔥 HOVER */
+/* grüner underline Effekt */
 .nav-links a::after {
   content:'';
   position:absolute;
@@ -87,11 +97,13 @@ nav h1 {
 }
 
 .nav-links a:hover {
-  transform:scale(1.1);
   color:#4CAF50;
+  transform:scale(1.05);
 }
 
-/* 🔵 HAMBURGER */
+/* =========================
+   🔵 HAMBURGER
+   ========================= */
 .menu-icon {
   display:none;
   font-size:28px;
@@ -99,7 +111,9 @@ nav h1 {
   cursor:pointer;
 }
 
-/* 📱 HANDY */
+/* =========================
+   📱 HANDY FIX (WICHTIG!)
+   ========================= */
 @media (max-width: 700px) {
 
   .menu-icon {
@@ -108,14 +122,18 @@ nav h1 {
 
   .nav-links {
     position:absolute;
-    top:80px;
+    top:100%;
     right:0;
+    width:100%;
     background:#2e2e2e;
+
+    display:flex;
     flex-direction:column;
-    width:220px;
+
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
+    z-index:999;
   }
 
   .nav-links a {
@@ -124,7 +142,7 @@ nav h1 {
   }
 
   .nav-links.active {
-    max-height:300px;
+    max-height:400px;
   }
 }
 
@@ -141,24 +159,12 @@ nav h1 {
   text-align:center;
 }
 
-/* 🔥 HERO BOX */
+/* Titel Box */
 .hero h2 {
   background:rgba(0,0,0,0.6);
   padding:15px 25px;
   border-radius:12px;
   box-shadow:0 5px 20px rgba(0,0,0,0.4);
-  animation:slideUp 1s ease;
-}
-
-@keyframes slideUp {
-  from {
-    transform:translateY(30px);
-    opacity:0;
-  }
-  to {
-    transform:translateY(0);
-    opacity:1;
-  }
 }
 
 /* =========================
@@ -171,7 +177,7 @@ section {
 }
 
 /* =========================
-   🔥 BILDER UNTEREINANDER
+   🔵 BILDER (UNTEREINANDER)
    ========================= */
 .image-box {
   text-align:center;
@@ -179,31 +185,38 @@ section {
 }
 
 .image-box img {
-  max-width:600px;
   width:100%;
+  max-width:650px;
   border-radius:12px;
   transition:0.4s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-/* 🔥 HOVER */
+/* Hover Effekt */
 .image-box img:hover {
-  transform:scale(1.05);
-  box-shadow:0 15px 25px rgba(0,0,0,0.3);
+  transform:scale(1.03);
+  box-shadow:0 15px 30px rgba(0,0,0,0.3);
 }
 
 /* =========================
-   🔵 FOOTER
+   🔵 FOOTER FIX (HANDY)
    ========================= */
 footer {
   background:#2e2e2e;
   color:white;
   text-align:center;
   padding:20px;
+
+  word-wrap:break-word;
+}
+
+footer p {
+  margin:8px 0;
+  line-height:1.4;
 }
 
 /* =========================
-   🔴 CSS ENDE
+   🔴 ENDE
    ========================= */
 
 </style>
@@ -211,7 +224,7 @@ footer {
 
 <body>
 
-<!-- 🔵 NAV -->
+<!-- NAV -->
 <nav>
 
 <div class="nav-left">
@@ -227,56 +240,34 @@ footer {
   <a href="ueber-uns.html">Über uns</a>
   <a href="hofleben.html">Hofleben</a>
   <a href="bilder.html">Bilder</a>
-  <a href="rezepte.html">Rezepte</a> 
+  <a href="rezepte.html">Rezepte</a>
 </div>
 
 </nav>
 
-<!-- 🔵 HERO -->
+<!-- HERO -->
 <div class="hero">
   <h2>Bilder</h2>
 </div>
 
-<!-- 🔵 INHALT -->
-<section>
-<p></p>
-</section>
+<!-- CONTENT -->
+<section></section>
 
-<!-- 🔥 BILDER -->
-<div class="image-box">
-  <img src="images/legmaschineauffuelen.jpg">
-</div>
+<!-- BILDER (untereinander) -->
+<div class="image-box"><img src="images/legmaschineauffuelen.jpg"></div>
+<div class="image-box"><img src="images/unterpeiching 2.jpg"></div>
+<div class="image-box"><img src="images/kartoffeln.jpg"></div>
+<div class="image-box"><img src="images/Unterpeiching 3.jpg"></div>
+<div class="image-box"><img src="images/logoschwarz.png"></div>
 
-<div class="image-box">
-  <img src="images/unterpeiching 2.jpg">
-</div>
-
-<div class="image-box">
-  <img src="images/kartoffeln.jpg">
-</div>
-
-<div class="image-box">
-  <img src="images/Unterpeiching 3.jpg">
-</div>
-
-<div class="image-box">
-  <img src="images/logoschwarz.png">
-</div>
-
-<!-- 🔵 FOOTER -->
+<!-- FOOTER -->
 <footer>
 
-<p>📞 Telefon: 1777442804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-🕒 24h geöffnet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-📍 Unterpeiching, Nordhausen & Staudheim </p>
-
-<br>
-
+<p>📞 Telefon: 1777442804 &nbsp;&nbsp; 🕒 24h geöffnet &nbsp;&nbsp; 📍 Unterpeiching, Nordhausen & Staudheim</p>
 <p>© 2026 Kartoffelhaisle (B. Wenninger)</p>
 
 </footer>
 
-<!-- 🔥 SCRIPT -->
 <script>
 function toggleMenu() {
   document.getElementById("menu").classList.toggle("active");
