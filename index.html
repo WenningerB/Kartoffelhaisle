@@ -12,20 +12,33 @@
    🔵 CSS START
    ========================= */
 
-/* 🔵 GANZE SEITE */
-body { 
-  margin:0; 
-  font-family:'Segoe UI',Arial; 
-  animation:fadeIn 1s ease; /* 🔥 Seite blendet ein */
+/* 🔵 ALLES SAUBER BERECHNEN */
+*{
+  box-sizing:border-box;
 }
 
-/* 🔥 FADE-IN ANIMATION */
+/* 🔵 GANZE SEITE */
+html,body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden; /* 🔥 verhindert weißen Rand rechts */
+}
+
+body { 
+  font-family:'Segoe UI',Arial; 
+  animation:fadeIn 1s ease;
+  background:#fff;
+}
+
+/* 🔥 FADE-IN */
 @keyframes fadeIn {
   from { opacity:0; }
   to { opacity:1; }
 }
 
-/* 🔵 NAVIGATION (oben) */
+/* =========================
+   🔵 NAVIGATION
+   ========================= */
 nav {
   display:flex;
   justify-content:space-between;
@@ -35,28 +48,26 @@ nav {
   position:relative;
 }
 
-/* 🔵 LINKER BEREICH */
 .nav-left {
   display:flex;
   align-items:center;
   gap:10px;
+  min-width:0;
 }
 
-/* 🔵 LOGO */
 .logo {
   height:110px;
   transition:0.3s;
 }
 
-/* 🔥 LOGO HOVER */
 .logo:hover {
   transform:scale(1.05);
 }
 
-/* 🔵 TEXT */
 nav h1 {
   color:white;
   margin:0;
+  font-size:30px;
 }
 
 /* 🔵 NAV LINKS */
@@ -72,7 +83,6 @@ nav h1 {
   transition:0.3s;
 }
 
-/* 🔥 HOVER */
 .nav-links a::after {
   content:'';
   position:absolute;
@@ -89,74 +99,91 @@ nav h1 {
 }
 
 .nav-links a:hover {
-  transform:scale(1.1);
   color:#4CAF50;
 }
 
 /* 🔵 HAMBURGER */
 .menu-icon {
   display:none;
-  font-size:28px;
+  font-size:30px;
   color:white;
   cursor:pointer;
+  padding:6px;
 }
 
-/* 📱 HANDY */
-@media (max-width: 700px) {
+/* =========================
+   📱 HANDY FIX
+   ========================= */
+@media (max-width:700px){
 
-  .menu-icon {
+  nav{
+    padding:10px 12px;
+  }
+
+  .logo{
+    height:60px;
+  }
+
+  nav h1{
+    font-size:18px;
+  }
+
+  .menu-icon{
     display:block;
   }
 
-  .nav-links {
+  .nav-links{
     position:absolute;
     top:80px;
     right:0;
+    width:230px;
     background:#2e2e2e;
     flex-direction:column;
-    width:220px;
+    gap:0;
+    z-index:999;
 
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
   }
 
-  .nav-links a {
-    padding:12px;
+  .nav-links a{
+    padding:14px;
     border-top:1px solid #444;
   }
 
-  .nav-links.active {
-    max-height:300px;
+  .nav-links.active{
+    max-height:90vh;     /* 🔥 jetzt passt Rezepte rein */
+    overflow-y:auto;     /* 🔥 eigenes Scrollen */
   }
+
 }
 
 /* =========================
-   🔵 HERO (Bild + Textkasten)
+   🔵 HERO
    ========================= */
-
 .hero {
   height:40vh;
-  background:url('images/kartoffeln.jpg') center/cover fixed; /* 🔥 Parallax Effekt */
+  background:url('images/kartoffeln.jpg') center/cover fixed;
   display:flex;
   align-items:center;
   justify-content:center;
   color:white;
   text-align:center;
+  padding:20px;
 }
 
-/* 🔥 TEXT-KASTEN im Hero */
 .hero h4 {
-  background:rgba(0,0,0,0.6); /* dunkler Hintergrund */
+  background:rgba(0,0,0,0.6);
   padding:20px;
   border-radius:15px;
   max-width:800px;
-  line-height:1.5;
+  line-height:1.6;
   box-shadow:0 5px 20px rgba(0,0,0,0.4);
   animation:slideUp 1s ease;
+  margin:0;
 }
 
-/* 🔥 leichte Bewegung beim Laden */
 @keyframes slideUp {
   from {
     transform:translateY(30px);
@@ -168,39 +195,56 @@ nav h1 {
   }
 }
 
+/* 📱 HERO HANDY */
+@media (max-width:700px){
+
+  .hero{
+    height:auto;
+    min-height:260px;
+    padding:25px 15px;
+    background-attachment:scroll;
+  }
+
+  .hero h4{
+    font-size:16px;
+    padding:15px;
+  }
+
+}
+
 /* =========================
    🔵 SECTION
    ========================= */
 section {
-  padding:40px 20px;
+  padding:35px 18px;
   max-width:1000px;
   margin:auto;
 }
 
 /* =========================
-   🔵 GRID (Produkte)
+   🔵 GRID
    ========================= */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
 }
 
 /* =========================
-   🔵 CARD (Boxen)
+   🔵 CARD
    ========================= */
 .card {
   background:#f5f5f5;
   padding:20px;
-  border-radius:10px;
+  border-radius:12px;
   text-align:center;
   transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* 🔥 CARD HOVER */
 .card:hover {
   transform:translateY(-5px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  box-shadow:0 10px 20px rgba(0,0,0,0.18);
 }
 
 /* =========================
@@ -211,19 +255,18 @@ section {
   color:white;
   padding:10px 20px;
   text-decoration:none;
-  border-radius:5px;
+  border-radius:8px;
   display:inline-block;
   transition:0.3s;
 }
 
-/* 🔥 BUTTON EFFEKTE */
 .button:hover {
   background:#45a049;
   transform:scale(1.05);
 }
 
 .button:active {
-  transform:scale(0.95);
+  transform:scale(0.96);
 }
 
 /* =========================
@@ -233,7 +276,27 @@ footer {
   background:#2e2e2e;
   color:white;
   text-align:center;
-  padding:20px;
+  padding:18px 15px;
+  margin-top:20px;
+}
+
+footer p{
+  margin:8px 0;
+  line-height:1.6;
+}
+
+/* 📱 FOOTER HANDY */
+@media (max-width:700px){
+
+  footer{
+    font-size:14px;
+  }
+
+  footer .topline span{
+    display:block;
+    margin:6px 0;
+  }
+
 }
 
 /* =========================
@@ -244,10 +307,6 @@ footer {
 </head>
 
 <body>
-
-<!-- =========================
-     🔵 HTML START
-     ========================= -->
 
 <!-- 🔵 NAV -->
 <nav>
@@ -279,11 +338,9 @@ unseren Selbstvermarktungshäusern <br>mit den
 Standorten: Unterpeiching, Staudheim und Nordhausen.</h4>
 </div>
 
-<div class="card">
 <section>
-<a class="button"href="ueber-uns.html">Über uns 
-Weiterlesen
-</a>
+<div class="card">
+<a class="button" href="ueber-uns.html">Über uns Weiterlesen</a>
 </div>
 </section>
 
@@ -302,14 +359,14 @@ Weiterlesen
 <div class="card">🥔🥕 Rote Beete</div>
 <div class="card">🥕 Pastinaken*</div>
 <div class="card">🎃 Kürbise*</div>
-<div class="card">🍯 Honig* </div>
-<div class="card">🥚 Wachteleier* </div>
+<div class="card">🍯 Honig*</div>
+<div class="card">🥚 Wachteleier*</div>
 
 </div>
 </section>
 
 <section>
-<h6> * nicht in allen Häusern verfügbar</h6>
+<h6>* nicht in allen Häusern verfügbar</h6>
 </section>
 
 <section>
@@ -317,13 +374,12 @@ Weiterlesen
 
 <div class="card">
 
-<h3>🐔 Suppenhühner jetzt wieder verfügbar!*</h3><br>
+<h3>🐔 Suppenhühner jetzt wieder verfügbar!*</h3>
 
-<p>Frisch geschlachtet,<br>
+<p>
+Frisch geschlachtet,<br>
 tiefgefroren und küchenfertig verpackt.
 </p>
-
-<br>
 
 <a class="button" href="https://wa.me/491777442804">
 Jetzt bestellen
@@ -333,17 +389,17 @@ Jetzt bestellen
 </section>
 
 <section>
-<h6> *Nur per bestellung und nicht in den Häusern verfügbar</h6>
+<h6>*Nur per bestellung und nicht in den Häusern verfügbar</h6>
 </section>
 
 <!-- 🔵 FOOTER -->
 <footer>
 
-<p>📞 Telefon: 1777442804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-🕒 24h geöffnet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-📍 Unterpeiching, Nordhausen & Staudheim </p>
-
-<br>
+<p class="topline">
+<span>📞 Telefon: 1777442804</span>
+<span>🕒 24h geöffnet</span>
+<span>📍 Unterpeiching, Nordhausen & Staudheim</span>
+</p>
 
 <p>© 2026 Kartoffelhaisle (B. Wenninger)</p>
 
@@ -358,3 +414,4 @@ function toggleMenu() {
 
 </body>
 </html>
+
