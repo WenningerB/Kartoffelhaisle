@@ -9,24 +9,32 @@
 <style>
 
 /* =========================
-   🔵 CSS START
-   ========================= */
-
-/* 🔵 GANZE SEITE */
-body { 
-  margin:0; 
-  font-family:'Segoe UI',Arial; 
-  animation:fadeIn 1s ease; /* 🔥 Einblenden */
+   🔵 GLOBAL FIX
+========================= */
+*{
+  box-sizing:border-box;
 }
 
-/* 🔥 FADE-IN */
-@keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity:1; }
+html,body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+  font-family:'Segoe UI',Arial,sans-serif;
+  animation:fadeIn 1s ease;
 }
 
-/* 🔵 NAVBAR */
-nav {
+/* =========================
+   🔥 FADE IN
+========================= */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* =========================
+   🔵 NAVIGATION
+========================= */
+nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -35,41 +43,41 @@ nav {
   position:relative;
 }
 
-.nav-left {
+.nav-left{
   display:flex;
   align-items:center;
   gap:10px;
+  min-width:0;
 }
 
-.logo {
+.logo{
   height:110px;
   transition:0.3s;
 }
 
-/* 🔥 LOGO HOVER */
-.logo:hover {
+.logo:hover{
   transform:scale(1.05);
 }
 
-nav h1 {
+nav h1{
   color:white;
   margin:0;
+  font-size:32px;
 }
 
-.nav-links {
+.nav-links{
   display:flex;
   gap:15px;
 }
 
-.nav-links a {
+.nav-links a{
   color:white;
   text-decoration:none;
   position:relative;
   transition:0.3s;
 }
 
-/* 🔥 HOVER EFFEKT */
-.nav-links a::after {
+.nav-links a::after{
   content:'';
   position:absolute;
   left:0;
@@ -80,55 +88,31 @@ nav h1 {
   transition:0.3s;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after{
   width:100%;
 }
 
-.nav-links a:hover {
-  transform:scale(1.1);
+.nav-links a:hover{
   color:#4CAF50;
 }
 
-/* 🔵 HAMBURGER */
-.menu-icon {
+/* =========================
+   🔵 HAMBURGER
+========================= */
+.menu-icon{
   display:none;
-  font-size:28px;
+  font-size:30px;
   color:white;
   cursor:pointer;
-}
-
-/* 📱 HANDY */
-@media (max-width:700px){
-  .menu-icon { display:block; }
-
-  .nav-links {
-    position:absolute;
-    top:80px;
-    right:0;
-    background:#2e2e2e;
-    flex-direction:column;
-    width:220px;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.4s ease;
-  }
-
-  .nav-links a {
-    padding:12px;
-    border-top:1px solid #444;
-  }
-
-  .nav-links.active {
-    max-height:300px;
-  }
+  padding:5px 10px;
 }
 
 /* =========================
-   🔵 HERO (mit Kasten)
-   ========================= */
-.hero {
+   🔵 HERO
+========================= */
+.hero{
   height:30vh;
-  background:url('images/kartoffeln.jpg') center/cover fixed; /* 🔥 Parallax */
+  background:url('images/kartoffeln.jpg') center/cover fixed;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -136,31 +120,17 @@ nav h1 {
   text-align:center;
 }
 
-/* 🔥 HERO TEXT BOX */
-.hero h2 {
+.hero h2{
   background:rgba(0,0,0,0.6);
   padding:15px 25px;
   border-radius:12px;
   box-shadow:0 5px 20px rgba(0,0,0,0.4);
-  animation:slideUp 1s ease;
-}
-
-/* 🔥 Bewegung */
-@keyframes slideUp {
-  from {
-    transform:translateY(30px);
-    opacity:0;
-  }
-  to {
-    transform:translateY(0);
-    opacity:1;
-  }
 }
 
 /* =========================
    🔵 SECTION
-   ========================= */
-section {
+========================= */
+section{
   padding:40px 20px;
   max-width:1100px;
   margin:auto;
@@ -168,80 +138,132 @@ section {
 
 /* =========================
    🔵 GRID
-   ========================= */
-.grid {
+========================= */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:30px;
 }
 
 /* =========================
-   🔵 KARTE (CARD)
-   ========================= */
-.card {
+   🔵 CARD
+========================= */
+.card{
   background:#f5f5f5;
   border-radius:12px;
   overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  box-shadow:0 5px 15px rgba(0,0,0,0.10);
   transition:0.3s;
 }
 
-/* 🔥 CARD HOVER */
-.card:hover {
+.card:hover{
   transform:translateY(-8px);
-  box-shadow:0 15px 25px rgba(0,0,0,0.2);
+  box-shadow:0 15px 25px rgba(0,0,0,0.18);
 }
 
-/* =========================
-   🔵 BILD
-   ========================= */
-.card img {
+.card img{
   width:100%;
-  height:200px;
+  height:220px;
   object-fit:cover;
   transition:0.4s;
 }
 
-/* 🔥 BILD ZOOM */
-.card img:hover {
-  transform:scale(1.05);
+.card img:hover{
+  transform:scale(1.04);
 }
 
-/* =========================
-   🔵 TEXT
-   ========================= */
-.card-content {
+.card-content{
   padding:20px;
 }
 
-.card-content h3 {
+.card-content h3{
   margin-top:0;
 }
 
 /* =========================
    🔵 FOOTER
-   ========================= */
-footer {
+========================= */
+footer{
   background:#2e2e2e;
   color:white;
   text-align:center;
   padding:20px;
 }
 
+footer p{
+  margin:8px 0;
+  line-height:1.5;
+}
+
 /* =========================
-   🔴 CSS ENDE
-   ========================= */
+   📱 HANDY FIX
+========================= */
+@media (max-width:700px){
+
+  nav{
+    padding:12px 15px;
+  }
+
+  .logo{
+    height:70px;
+  }
+
+  nav h1{
+    font-size:22px;
+  }
+
+  .menu-icon{
+    display:block;
+    margin-left:auto;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#2e2e2e;
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+    z-index:999;
+  }
+
+  .nav-links a{
+    padding:14px;
+    border-top:1px solid #444;
+    text-align:center;
+  }
+
+  .nav-links.active{
+    max-height:500px;
+  }
+
+  .hero{
+    background-attachment:scroll;
+    height:25vh;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  footer p:first-child{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     🔵 HTML START
-     ========================= -->
-
-<!-- 🔵 NAV -->
+<!-- NAV -->
 <nav>
 
 <div class="nav-left">
@@ -257,53 +279,50 @@ footer {
   <a href="ueber-uns.html">Über uns</a>
   <a href="hofleben.html">Hofleben</a>
   <a href="bilder.html">Bilder</a>
-  <a href="rezepte.html">Rezepte</a> 
+  <a href="rezepte.html">Rezepte</a>
 </div>
 
 </nav>
 
-<!-- 🔵 HERO -->
+<!-- HERO -->
 <div class="hero">
   <h2>Unsere Standorte</h2>
 </div>
 
-<!-- 🔵 STANDORTE -->
+<!-- STANDORTE -->
 <section>
 
 <div class="grid">
 
-<!-- 🟢 Unterpeiching -->
 <div class="card">
   <img src="images/unterpeiching.jpg">
   <div class="card-content">
     <h3>Unterpeiching</h3>
     <p>
-	Unser Hauptstandort und 24h geöffnet.<br><br>
-	👉 Adresse: Dorfstraße 22, Unterpeiching 86641
+    Unser Hauptstandort und 24h geöffnet.<br><br>
+    👉 Adresse: Dorfstraße 22, Unterpeiching 86641
     </p>
   </div>
 </div>
 
-<!-- 🟢 Nordhausen -->
 <div class="card">
   <img src="images/nordhausen.jpg">
   <div class="card-content">
     <h3>Nordhausen</h3>
     <p>
-	Kleines Selbstbedienungshaisle mit frischen Produkten und 24h geöffnet.<br><br>
-	👉 Adresse: Krumme Gasse 8, 73485 Unterschneidheim
+    Kleines Selbstbedienungshaisle mit frischen Produkten und 24h geöffnet.<br><br>
+    👉 Adresse: Krumme Gasse 8, 73485 Unterschneidheim
     </p>
   </div>
 </div>
 
-<!-- 🟢 Staudheim -->
 <div class="card">
   <img src="images/staudheim.jpg">
   <div class="card-content">
     <h3>Staudheim</h3>
     <p>
-	Beliebter Standort mit saisonalen Angebotenund 24h geöffnet.<br><br>
-	👉 Adresse: Ortsaufahrt Richtung Burgheim, Gegenüber der Kirche  
+    Beliebter Standort mit saisonalen Angeboten und 24h geöffnet.<br><br>
+    👉 Adresse: Ortsaufahrt Richtung Burgheim, Gegenüber der Kirche
     </p>
   </div>
 </div>
@@ -312,22 +331,21 @@ footer {
 
 </section>
 
-<!-- 🔵 FOOTER -->
+<!-- FOOTER -->
 <footer>
 
-<p>📞 Telefon: 1777442804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-🕒 24h geöffnet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-📍 Unterpeiching, Nordhausen & Staudheim </p>
-
-<br>
+<p>
+<span>📞 Telefon: 1777442804</span>
+<span>🕒 24h geöffnet</span>
+<span>📍 Unterpeiching, Nordhausen & Staudheim</span>
+</p>
 
 <p>© 2026 Kartoffelhaisle (B. Wenninger)</p>
 
 </footer>
 
-<!-- 🔥 SCRIPT -->
 <script>
-function toggleMenu() {
+function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 </script>
