@@ -8,24 +8,28 @@
 
 <style>
 
-/* BASIS */
+/* =========================
+   🔵 CSS START
+========================= */
+
 *{
 box-sizing:border-box;
 }
 
 body{
 margin:0;
-overflow-x:hidden;
 font-family:'Segoe UI',Arial;
 animation:fadeIn 1s ease;
+overflow-x:hidden;
 }
 
+/* 🔥 FADE IN */
 @keyframes fadeIn{
 from{opacity:0;}
 to{opacity:1;}
 }
 
-/* NAVIGATION */
+/* 🔵 NAVIGATION */
 nav{
 display:flex;
 justify-content:space-between;
@@ -55,6 +59,7 @@ color:white;
 margin:0;
 }
 
+/* LINKS */
 .nav-links{
 display:flex;
 gap:15px;
@@ -83,16 +88,60 @@ width:100%;
 }
 
 .nav-links a:hover{
+transform:scale(1.1);
 color:#4CAF50;
 }
 
+/* HAMBURGER */
 .menu-icon{
 display:none;
-font-size:30px;
+font-size:28px;
 color:white;
 cursor:pointer;
-padding:5px;
-z-index:1000;
+}
+
+/* 📱 HANDY */
+@media (max-width:700px){
+
+.menu-icon{
+display:block;
+margin-left:auto;
+}
+
+.logo{
+height:75px;
+}
+
+nav h1{
+font-size:24px;
+}
+
+.nav-links{
+position:absolute;
+top:80px;
+right:0;
+background:#2e2e2e;
+flex-direction:column;
+width:220px;
+max-height:0;
+overflow:hidden;
+transition:max-height 0.4s ease;
+z-index:999;
+}
+
+.nav-links a{
+padding:12px;
+border-top:1px solid #444;
+}
+
+.nav-links.active{
+max-height:320px;
+}
+
+footer p:first-child{
+line-height:1.7;
+word-break:break-word;
+}
 }
 
 /* HERO */
@@ -110,6 +159,19 @@ text-align:center;
 background:rgba(0,0,0,0.6);
 padding:15px 25px;
 border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+from{
+transform:translateY(30px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
 }
 
 /* CONTENT */
@@ -126,17 +188,19 @@ border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* BILDER */
 img{
-border-radius:10px;
 transition:0.4s;
+border-radius:10px;
 }
 
 img:hover{
-transform:scale(1.03);
+transform:scale(1.05);
 }
 
 div[style]{
 margin-bottom:30px;
+padding:0 15px;
 }
 
 /* FOOTER */
@@ -147,72 +211,16 @@ text-align:center;
 padding:20px;
 }
 
-footer p{
-margin:8px 0;
-line-height:1.5;
-}
-
-/* HANDY */
-@media(max-width:700px){
-
-nav{
-padding:12px 15px;
-}
-
-.logo{
-height:70px;
-}
-
-nav h1{
-font-size:22px;
-}
-
-.menu-icon{
-display:block;
-margin-left:auto;
-}
-
-.nav-links{
-position:absolute;
-top:100%;
-right:0;
-width:220px;
-background:#2e2e2e;
-flex-direction:column;
-gap:0;
-max-height:0;
-overflow:hidden;
-transition:max-height 0.4s ease;
-z-index:999;
-}
-
-.nav-links a{
-padding:14px;
-border-top:1px solid #444;
-text-align:center;
-}
-
-.nav-links.active{
-max-height:500px;
-}
-
-.hero{
-background-attachment:scroll;
-height:25vh;
-}
-
-footer p:first-child{
-display:flex;
-flex-direction:column;
-gap:8px;
-}
-}
+/* =========================
+   🔴 CSS ENDE
+========================= */
 
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
 
 <div class="nav-left">
@@ -233,6 +241,7 @@ gap:8px;
 
 </nav>
 
+<!-- HERO -->
 <div class="hero">
 <h2>Hofleben<br>Was bei uns übers Jahr so passiert</h2>
 </div>
@@ -270,14 +279,19 @@ um sie vor Krankheitserregern und anderen Schädlingen zu schützen.</p>
 <img src="images/kartoffelnklauben.jpg" style="max-width:600px;width:100%;">
 </div>
 
+<!-- FOOTER -->
 <footer>
+
 <p>
-<span>📞 Telefon: 1777442804</span>
-<span>🕒 24h geöffnet</span>
-<span>📍 Unterpeiching, Nordhausen & Staudheim</span>
+📞 Telefon: 1777442804&nbsp;&nbsp;&nbsp;&nbsp;
+🕒 24h geöffnet&nbsp;&nbsp;&nbsp;&nbsp;
+📍 Unterpeiching, Nordhausen & Staudheim
 </p>
 
+<br>
+
 <p>© 2026 Kartoffelhaisle (B. Wenninger)</p>
+
 </footer>
 
 <script>
