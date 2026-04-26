@@ -4,34 +4,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hofleben - Kartoffelhaisle</title>
+<title>Bilder - Kartoffelhaisle</title>
 
 <style>
 
 /* =========================
-   🔵 BASIC FIX
-========================= */
-* {
-  box-sizing: border-box;
+   🔵 BASIS
+   ========================= */
+*{
+  box-sizing:border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  animation: fadeIn 1s ease;
+html,body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
 }
 
-@keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity:1; }
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#ffffff;
+  animation:fadeIn 1s ease;
+}
+
+/* 🔥 FADE IN */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
 /* =========================
-   🔵 NAVIGATION (FIX EINHEITLICH)
-========================= */
-nav {
+   🔵 NAVIGATION
+   ========================= */
+nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -40,39 +45,41 @@ nav {
   position:relative;
 }
 
-.nav-left {
+.nav-left{
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.logo {
+.logo{
   height:110px;
   transition:0.3s;
 }
 
-.logo:hover {
+.logo:hover{
   transform:scale(1.05);
 }
 
-nav h1 {
+nav h1{
   color:white;
   margin:0;
+  font-size:32px;
 }
 
-.nav-links {
+/* LINKS */
+.nav-links{
   display:flex;
   gap:15px;
 }
 
-.nav-links a {
+.nav-links a{
   color:white;
   text-decoration:none;
   position:relative;
+  transition:0.3s;
 }
 
-/* grüner Effekt */
-.nav-links a::after {
+.nav-links a::after{
   content:'';
   position:absolute;
   left:0;
@@ -83,122 +90,164 @@ nav h1 {
   transition:0.3s;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after{
   width:100%;
 }
 
-.nav-links a:hover {
+.nav-links a:hover{
   color:#4CAF50;
+  transform:scale(1.08);
+}
+
+/* HAMBURGER */
+.menu-icon{
+  display:none;
+  font-size:32px;
+  color:white;
+  cursor:pointer;
+  user-select:none;
 }
 
 /* =========================
-   🔵 MOBILE FIX (WICHTIG)
-========================= */
-.menu-icon {
-  display:none;
-  font-size:28px;
-  color:white;
-  cursor:pointer;
-}
+   📱 HANDY WIE INDEX
+   ========================= */
+@media (max-width:700px){
 
-@media (max-width:700px) {
+  nav{
+    padding:12px 15px;
+  }
 
-  .menu-icon {
+  .logo{
+    height:60px;
+  }
+
+  nav h1{
+    font-size:22px;
+  }
+
+  .menu-icon{
     display:block;
   }
 
-  .nav-links {
+  .nav-links{
     position:absolute;
-    top:100%;
+    top:84px;
     right:0;
-    width:230px;
+    width:220px;
     background:#2e2e2e;
     flex-direction:column;
-
+    gap:0;
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
     z-index:999;
   }
 
-  .nav-links a {
-    padding:12px;
+  .nav-links a{
+    padding:14px;
     border-top:1px solid #444;
   }
 
-  .nav-links.active {
-    max-height:400px;
+  .nav-links.active{
+    max-height:500px;
   }
 }
 
 /* =========================
    🔵 HERO
-========================= */
-.hero {
+   ========================= */
+.hero{
   height:30vh;
+  min-height:220px;
   background:url('images/kartoffeln.jpg') center/cover fixed;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
-  color:white;
+  padding:20px;
 }
 
-.hero h2 {
+.hero h2{
+  color:white;
   background:rgba(0,0,0,0.6);
-  padding:15px 25px;
-  border-radius:12px;
+  padding:18px 25px;
+  border-radius:14px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+  animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+  from{
+    transform:translateY(30px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
 }
 
 /* =========================
    🔵 CONTENT
-========================= */
-section {
-  padding:35px 20px;
-  max-width:900px;
+   ========================= */
+section{
+  padding:40px 20px 10px;
+  max-width:1000px;
   margin:auto;
-}
-
-p {
-  background:#f5f5f5;
-  padding:15px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  line-height:1.6;
 }
 
 /* =========================
    🔵 BILDER
-========================= */
-.image-box {
+   ========================= */
+.image-box{
   text-align:center;
-  margin:30px 0;
+  margin:0 auto 35px;
+  padding:0 20px;
 }
 
-.image-box img {
+.image-box img{
   width:100%;
-  max-width:600px;
-  border-radius:10px;
+  max-width:650px;
+  border-radius:12px;
   transition:0.4s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-.image-box img:hover {
-  transform:scale(1.04);
+.image-box img:hover{
+  transform:scale(1.03);
+  box-shadow:0 15px 30px rgba(0,0,0,0.25);
 }
 
 /* =========================
-   🔵 FOOTER
-========================= */
-footer {
+   🔵 FOOTER WIE INDEX
+   ========================= */
+footer{
   background:#2e2e2e;
   color:white;
   text-align:center;
   padding:20px;
 }
 
-footer p {
-  margin:8px 0;
-  line-height:1.5;
+/* =========================
+   📱 EXTRA HANDY
+   ========================= */
+@media (max-width:700px){
+
+  .hero{
+    background-attachment:scroll;
+    height:auto;
+    padding:45px 15px;
+  }
+
+  .hero h2{
+    font-size:26px;
+  }
+
+  footer{
+    font-size:14px;
+    line-height:1.7;
+    padding:20px 15px;
+  }
 }
 
 </style>
@@ -206,66 +255,52 @@ footer p {
 
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-left">
-    <img src="images/logo.png" class="logo">
-    <h1>Kartoffelhaisle</h1>
-  </div>
 
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+<div class="nav-left">
+  <img src="images/logo.png" class="logo">
+  <h1>Kartoffelhaisle</h1>
+</div>
 
-  <div class="nav-links" id="menu">
-    <a href="index.html">Startseite</a>
-    <a href="standorte.html">Standorte</a>
-    <a href="ueber-uns.html">Über uns</a>
-    <a href="hofleben.html">Hofleben</a>
-    <a href="bilder.html">Bilder</a>
-    <a href="rezepte.html">Rezepte</a>
-  </div>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<div class="nav-links" id="menu">
+  <a href="index.html">Startseite</a>
+  <a href="standorte.html">Standorte</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="hofleben.html">Hofleben</a>
+  <a href="bilder.html">Bilder</a>
+  <a href="rezepte.html">Rezepte</a>
+</div>
+
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <h2>Hofleben<br>Was bei uns übers Jahr passiert</h2>
+  <h2>Bilder</h2>
 </div>
 
-<section>
-<p>Im März starten wir mit dem Kartoffellegen.</p>
-</section>
+<section></section>
 
-<div class="image-box">
-  <img src="images/kartoffellegen.jpg">
-</div>
+<!-- BILDER -->
+<div class="image-box"><img src="images/legmaschineauffuelen.jpg"></div>
+<div class="image-box"><img src="images/unterpeiching 2.jpg"></div>
+<div class="image-box"><img src="images/kartoffeln.jpg"></div>
+<div class="image-box"><img src="images/Unterpeiching 3.jpg"></div>
+<div class="image-box"><img src="images/logoschwarz.png"></div>
 
-<section>
-<p>Wenn es nicht regnet, müssen wir unsere Kartoffeln beregnen.</p>
-</section>
-
-<div class="image-box">
-  <img src="images/beregnen.jpg">
-</div>
-
-<section>
-<p>
-Da wir unseren Hof konventionell betreiben, spritzen wir unsere Pflanzen,
-um sie vor Krankheiten und Schädlingen zu schützen.
-</p>
-</section>
-
-<div class="image-box">
-  <img src="images/spritzen.jpg">
-</div>
-
-<section>
-<p>Im Sommer holen wir die Kartoffeln mit dem Roder wieder aus dem Boden.</p>
-</section>
-
-<div class="image-box">
-  <img src="images/kartoffelnklauben.jpg">
-</div>
-
+<!-- FOOTER -->
 <footer>
-<p>📞 1777442804 • 🕒 24h geöffnet • 📍 Unterpeiching, Nordhausen & Staudheim</p>
-<p>© 2026 Kartoffelhaisle</p>
+
+<p>📞 Telefon: 1777442804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+🕒 24h geöffnet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+📍 Unterpeiching, Nordhausen & Staudheim</p>
+
+<br>
+
+<p>© 2026 Kartoffelhaisle (B. Wenninger)</p>
+
 </footer>
 
 <script>
