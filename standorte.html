@@ -4,15 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kartoffelhaisle</title>
+<title>Standorte - Kartoffelhaisle</title>
 
 <style>
 
 /* =========================
-   🔵 CSS START
+   🔵 GLOBAL FIX
    ========================= */
-
-/* 🔵 RESET / HANDY BUG FIX */
 *{
   box-sizing:border-box;
 }
@@ -20,18 +18,12 @@
 html,body{
   margin:0;
   padding:0;
-  overflow-x:hidden;   /* 🔥 weißer Rand weg */
-  max-width:100%;
-}
-
-/* 🔵 GANZE SEITE */
-body{
-  font-family:'Segoe UI',Arial,sans-serif;
+  overflow-x:hidden;
+  font-family:'Segoe UI',Arial;
   animation:fadeIn 1s ease;
-  background:white;
 }
 
-/* 🔥 FADE IN */
+/* 🔥 FADE-IN */
 @keyframes fadeIn{
   from{opacity:0;}
   to{opacity:1;}
@@ -45,9 +37,8 @@ nav{
   justify-content:space-between;
   align-items:center;
   background:#2e2e2e;
-  padding:12px 20px;
+  padding:15px 20px;
   position:relative;
-  z-index:1000;
 }
 
 .nav-left{
@@ -69,13 +60,8 @@ nav{
 nav h1{
   color:white;
   margin:0;
-  font-size:32px;
-  white-space:nowrap;
 }
 
-/* =========================
-   🔵 NAV LINKS PC
-   ========================= */
 .nav-links{
   display:flex;
   gap:15px;
@@ -105,54 +91,36 @@ nav h1{
 
 .nav-links a:hover{
   color:#4CAF50;
-  transform:scale(1.08);
+  transform:scale(1.05);
 }
 
-/* =========================
-   🔵 HAMBURGER
-   ========================= */
+/* 🔵 HAMBURGER */
 .menu-icon{
   display:none;
-  font-size:32px;
+  font-size:30px;
   color:white;
   cursor:pointer;
   padding:5px 8px;
-  margin-left:10px;
 }
 
 /* =========================
-   🔵 HERO PC
+   🔵 HERO
    ========================= */
 .hero{
-  height:40vh;
+  height:30vh;
   background:url('images/kartoffeln.jpg') center/cover fixed;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
   color:white;
-  padding:20px;
+  text-align:center;
 }
 
-.hero h4{
+.hero h2{
   background:rgba(0,0,0,0.6);
-  padding:20px;
-  border-radius:15px;
-  max-width:800px;
-  line-height:1.5;
+  padding:15px 25px;
+  border-radius:12px;
   box-shadow:0 5px 20px rgba(0,0,0,0.4);
-  animation:slideUp 1s ease;
-}
-
-@keyframes slideUp{
-  from{
-    transform:translateY(30px);
-    opacity:0;
-  }
-  to{
-    transform:translateY(0);
-    opacity:1;
-  }
 }
 
 /* =========================
@@ -160,42 +128,46 @@ nav h1{
    ========================= */
 section{
   padding:40px 20px;
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
 }
 
 .card{
   background:#f5f5f5;
-  padding:20px;
   border-radius:12px;
-  text-align:center;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  transform:translateY(-8px);
+  box-shadow:0 15px 25px rgba(0,0,0,0.2);
 }
 
-.button{
-  background:#4CAF50;
-  color:white;
-  padding:10px 20px;
-  text-decoration:none;
-  border-radius:8px;
-  display:inline-block;
-  transition:0.3s;
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:0.4s;
 }
 
-.button:hover{
-  background:#45a049;
+.card img:hover{
   transform:scale(1.05);
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card-content h3{
+  margin-top:0;
 }
 
 /* =========================
@@ -207,38 +179,23 @@ footer{
   text-align:center;
   padding:20px;
 }
-footer a{
-  color:black;
-  text-decoration:none;
-  transition:0.3s;
+
+footer p{
+  margin:8px 0;
+  line-height:1.5;
 }
 
-footer a:hover{
-  color:#4CAF50;
-}
-
-.footer-button{
-  margin-top:20px;
-}
-footer a{
-    color:white;
-    text-decoration:none;
-}
-
-footer a:hover{
-    color:#4CAF50;
-}
 /* =========================
-   📱 HANDY ANPASSUNG
+   📱 HANDY FIX
    ========================= */
 @media (max-width:700px){
 
   nav{
-    padding:10px 14px;
+    padding:12px 15px;
   }
 
   .logo{
-    height:62px;
+    height:68px;
   }
 
   nav h1{
@@ -247,7 +204,6 @@ footer a:hover{
 
   .menu-icon{
     display:block;
-    font-size:30px;
     margin-left:auto;
   }
 
@@ -262,59 +218,41 @@ footer a:hover{
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
-    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+    z-index:999;
   }
 
   .nav-links a{
     padding:14px;
     border-top:1px solid #444;
+    text-align:left;
   }
 
   .nav-links.active{
-    max-height:500px; /* 🔥 Rezepte sichtbar */
+    max-height:500px;
   }
 
-  /* HERO am Handy ohne Parallax */
   .hero{
-    height:auto;
-    min-height:280px;
-    padding:25px 15px;
-    background:url('images/kartoffeln.jpg') center/cover;
-  }
-
-  .hero h4{
-    font-size:16px;
-    line-height:1.5;
-    padding:16px;
-  }
-
-  section{
-    padding:30px 15px;
+    background-attachment:scroll;
+    height:24vh;
   }
 
   .grid{
     grid-template-columns:1fr;
   }
 
-  /* Footer untereinander */
-  .footer-top{
+  footer p:first-child{
     display:flex;
     flex-direction:column;
     gap:8px;
   }
-
 }
-
-/* =========================
-   🔴 CSS ENDE
-   ========================= */
 
 </style>
 </head>
 
 <body>
 
-<!-- 🔵 NAV -->
+<!-- NAV -->
 <nav>
 
 <div class="nav-left">
@@ -335,108 +273,68 @@ footer a:hover{
 
 </nav>
 
-<!-- 🔵 HERO -->
+<!-- HERO -->
 <div class="hero">
-<h4>Wir sind die Familie Wenninger und betreiben einen kleinen landwirtschaftlichen 
-Betrieb, mit Hühner <br>und verschiedenen Pflanzen wie Kartoffeln, Karotten u.v.m, 
-in <br> Unterpeiching, das liegt direkt neben Rain am Lech. Unsere Produkte verkaufen <br>wir in 
-unseren Selbstvermarktungshäusern <br>mit den 
-Standorten: Unterpeiching, Staudheim und Nordhausen.</h4>
+  <h2>Unsere Standorte</h2>
 </div>
 
-<div class="card">
+<!-- STANDORTE -->
 <section>
-<a class="button" href="ueber-uns.html">Über uns 
-Weiterlesen
-</a>
-</section>
-</div>
-
-<!-- 🔵 PRODUKTE -->
-<section>
-<h2>Unsere Produkte</h2>
 
 <div class="grid">
 
-<div class="card">🥔 Kartoffeln</div>
-<div class="card">🥚 Eier</div>
-<div class="card">🍝 Nudeln*</div>
-<div class="card">🐔 Suppenhühner*</div>
-<div class="card">🧅 Zwiebeln</div>
-<div class="card">🥕 Karotten</div>
-<div class="card">🥔🥕 Rote Beete</div>
-<div class="card">🥕 Pastinaken*</div>
-<div class="card">🎃 Kürbise*</div>
-<div class="card">🍯 Honig*</div>
-<div class="card">🥚 Wachteleier*</div>
-
+<div class="card">
+  <img src="images/unterpeiching.jpg">
+  <div class="card-content">
+    <h3>Unterpeiching</h3>
+    <p>
+    Unser Hauptstandort und 24h geöffnet.<br><br>
+    👉 Adresse: Dorfstraße 22, Unterpeiching 86641
+    </p>
+  </div>
 </div>
-</section>
-
-<section>
-<h6>* nicht in allen Häusern verfügbar</h6>
-</section>
-
-<section>
-<h2>Aktuelles</h2>
 
 <div class="card">
+  <img src="images/nordhausen.jpg">
+  <div class="card-content">
+    <h3>Nordhausen</h3>
+    <p>
+    Kleines Selbstbedienungshaisle mit frischen Produkten und 24h geöffnet.<br><br>
+    👉 Adresse: Krumme Gasse 8, 73485 Unterschneidheim
+    </p>
+  </div>
+</div>
 
-<h3>🐔 Suppenhühner jetzt wieder verfügbar!*</h3>
-
-<p>
-Frisch geschlachtet,<br>
-tiefgefroren und küchenfertig verpackt.
-</p>
-
-<a class="button" href="https://wa.me/491777442804">
-Jetzt bestellen
-</a>
+<div class="card">
+  <img src="images/staudheim.jpg">
+  <div class="card-content">
+    <h3>Staudheim</h3>
+    <p>
+    Beliebter Standort mit saisonalen Angebotenund 24h geöffnet.<br><br>
+    👉 Adresse: Ortsaufahrt Richtung Burgheim, Gegenüber der Kirche
+    </p>
+  </div>
+</div>
 
 </div>
+
 </section>
 
-<section>
-<h6>*Nur per bestellung und nicht in den Häusern verfügbar</h6>
-</section>
-
-<!-- 🔵 FOOTER -->
+<!-- FOOTER -->
 <footer>
 
-<div class="footer-top">
-
-<div>
-📞 Telefon:
-<a href="tel:+491777442804">+49 177 7442804</a>
-</div>
-
-<div>🕒 24h geöffnet</div>
-
-<div>📍 Unterpeiching, Nordhausen &amp; Staudheim</div>
-
-<div>
-📧
-<a href="mailto:wenninger.kartoffelhaisle@gmx.de">
-wenninger.kartoffelhaisle@gmx.de
-</a>
-</div>
-
-<div class="footer-button">
-<a class="button" href="impressum.html">
-📄 Impressum
-</a>
-</div>
-
-</div>
-
-<p style="margin-top:25px;">
-© 2026 Kartoffelhaisle (B. Wenninger)
+<p>
+<span>📞 Telefon: 1777442804</span>
+<span>🕒 24h geöffnet</span>
+<span>📍 Unterpeiching, Nordhausen & Staudheim</span>
 </p>
 
+<p>© 2026 Kartoffelhaisle (B. Wenninger)</p>
+
 </footer>
-<!-- 🔥 SCRIPT -->
+
 <script>
-function toggleMenu(){
+function toggleMenu() {
   document.getElementById("menu").classList.toggle("active");
 }
 </script>
