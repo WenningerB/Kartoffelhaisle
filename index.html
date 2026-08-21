@@ -214,40 +214,33 @@ section{
     background: #f5f5f5;
     overflow: hidden;
 }
-
-.produkt-box summary {
-    padding: 18px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    list-style: none;
-}
-.produkt-box summary {
-    padding: 18px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    list-style: none;
+.produkt-box summary{
+    padding:0;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.produkt-box summary::-webkit-details-marker {
-    display: none;
+.produkt-box summary::-webkit-details-marker{
+    display:none;
 }
 
-.produkt-box summary::marker {
-    content: "";
+.produkt-box summary::marker{
+    content:"";
 }
 
-
-.produkt-box summary::after {
-    content: "▼";
-    float: right;
-    transition: transform 0.2s;
+.produkt-box summary::after{
+    content:"▶";
+    font-size:14px;
+    transition:transform 0.2s;
 }
 
-.produkt-box[open] summary::after {
-    transform: rotate(180deg);
-}
+.produkt-box[open] summary::after{
+    transform:rotate(90deg);
 
 .produkt-inhalt {
     padding: 0 18px 18px 18px;
@@ -465,22 +458,25 @@ Weiterlesen
 
     <details class="card produkt-box">
         <summary>🥔 Kartoffeln</summary>
+ 
+       
+       <div class="produkt-inhalt">
+        <img src="images/kartoffeln.jpg" alt="Kartoffeln">
 
-        <div class="produkt-inhalt">
-            <p>Unsere Kartoffelsorten:</p>
+        <h3>Unsere Kartoffelsorten</h3>
 
-            <p>
-                <strong>Annabell</strong><br>
-                Festkochende Kartoffel
-            </p>
+        <p>
+            <strong>Annabell</strong><br>
+            Festkochend · feiner Geschmack
+        </p>
 
-            <p>
-                <strong>Anais</strong><br>
-                Vorwiegend festkochend
-            </p>
-        </div>
-    </details>
-
+        <p>
+            <strong>Anais</strong><br>
+            Vorwiegend festkochend · Frühkartoffeln
+        </p>
+    </div>
+</details>
+        
 
     <details class="card produkt-box">
         <summary>🧅 Zwiebeln</summary>
