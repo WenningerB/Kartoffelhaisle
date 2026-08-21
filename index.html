@@ -222,10 +222,22 @@ section{
     cursor: pointer;
     list-style: none;
 }
+.produkt-box summary {
+    padding: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+}
 
 .produkt-box summary::-webkit-details-marker {
     display: none;
 }
+
+.produkt-box summary::marker {
+    content: "";
+}
+
 
 .produkt-box summary::after {
     content: "▼";
@@ -445,65 +457,61 @@ Weiterlesen
 
    
 <!-- 🔵 PRODUKTE -->
+
 <section>
 <h2>Unsere Produkte</h2>
+
 <div class="grid">
 
-<details class="card produkt-card">
-    <summary>🥔 Kartoffeln</summary>
+    <details class="card produkt-box">
+        <summary>🥔 Kartoffeln</summary>
 
-    <div class="produkt-inhalt">
-        <img src="images/kartoffeln.jpg" alt="Kartoffeln">
+        <div class="produkt-inhalt">
+            <p>Unsere Kartoffelsorten:</p>
 
-        <h3>Unsere Kartoffelsorten</h3>
+            <p>
+                <strong>Annabell</strong><br>
+                Festkochende Kartoffel
+            </p>
 
-        <p>
-            <strong>Annabell</strong><br>
-            Festkochend · feiner Geschmack
-        </p>
-
-        <p>
-            <strong>Anais</strong><br>
-            Vorwiegend festkochend · Frühkartoffel
-        </p>
-    </div>
-</details>
-<br>
-
-<details class="card produkt-card">
-    <summary>🧅 Zwiebeln</summary>
-
-    <div class="produkt-inhalt">
-       
-
-        <h3>Unsere Zwiebelsorten</h3>
-
-        <p>
-            <strong>Gelbe Zwiebeln</strong><br>
-            Klassische Speisezwiebel · würzig und vielseitig
-        </p>
-    </div>
-</details>
+            <p>
+                <strong>Anais</strong><br>
+                Vorwiegend festkochend
+            </p>
+        </div>
+    </details>
 
 
-<br>
+    <details class="card produkt-box">
+        <summary>🧅 Zwiebeln</summary>
+
+        <div class="produkt-inhalt">
+            <p>Unsere Zwiebelsorten:</p>
+
+            <p>
+                <strong>Gelbe Zwiebeln</strong><br>
+                Klassische Speisezwiebel
+            </p>
+        </div>
+    </details>
 
 
-
-
-<div class="card">🥚 Eier</div>
-<div class="card">🍝 Nudeln*</div>
-<div class="card">🐔 Suppenhühner*</div>
-<div class="card">🥕 Karotten</div>
-<div class="card">🥔🥕 Rote Beete</div>
-<div class="card">🥕 Pastinaken*</div>
-<div class="card">🎃 Kürbise*</div>
-<div class="card">🍯 Honig*</div>
-<div class="card">🥚 Wachteleier*</div>
+    <div class="card">🥚 Eier</div>
+    <div class="card">🍝 Nudeln*</div>
+    <div class="card">🐔 Suppenhühner*</div>
+    <div class="card">🥕 Karotten</div>
+    <div class="card">🥔🥕 Rote Beete</div>
+    <div class="card">🥕 Pastinaken*</div>
+    <div class="card">🎃 Kürbise*</div>
+    <div class="card">🍯 Honig*</div>
+    <div class="card">🥚 Wachteleier*</div>
 
 </div>
 </section>
-
+   
+   
+   
+ 
 <section>
 <h6>* nicht in allen Häusern verfügbar</h6>
 </section>
