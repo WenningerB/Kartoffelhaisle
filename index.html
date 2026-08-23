@@ -202,9 +202,15 @@ section{
 }
 
 
+   .mehr-erfahren{
+    color:#4CAF50;
+    text-decoration:none;
+    font-weight:bold;
+}
 
-
-   
+.mehr-erfahren:hover{
+    text-decoration:underline;
+}
 
 
 /*=====================================================
@@ -292,6 +298,21 @@ section{
   margin-bottom:15px;
 }
 
+   
+.handy-bild{
+  display:none;
+}
+
+@media (max-width:700px){
+  .handy-bild{
+    display:block;
+    width:100%;
+    max-height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+  }
+}
 
 
 
@@ -488,7 +509,7 @@ Weiterlesen
 
        
        <div class="produkt-inhalt">
-        <img src="images/kartoffeln.jpg" alt="Kartoffeln">
+        <img src="images/kartoffeln.jpg" class="handy-bild" alt="Kartoffeln">
 
         <h3>Unsere Kartoffelsorten</h3>
 
@@ -501,6 +522,9 @@ Weiterlesen
             <strong>Anais</strong><br>
             Vorwiegend festkochend · Frühkartoffeln
         </p>
+          <a href="kartoffeln.html" class="mehr-erfahren">
+    Mehr erfahren
+</a>
     </div>
 </details>
         
